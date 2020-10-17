@@ -2,11 +2,11 @@ const express = require("express");
 const app = express();
 const port = 5000;
 
+require('dotenv').config();
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const fileUpload = require("express-fileUpload");
 const fs = require("fs-extra");
-require('dotenv').config();
 
 app.use(bodyParser.json());
 app.use(cors());
