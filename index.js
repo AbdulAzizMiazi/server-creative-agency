@@ -63,29 +63,13 @@ client.connect((err) => {
     const email = req.body.email;
     const service = req.body.service;
     const description = req.body.description;
-    const file = req.files.image;
-    const filePath = `${__dirname}/images/${file.name}`;
-    file.mv(filePath, error => {
-      const newImg = fs.readFileSync(filePath);
-      const encodedImg = newImg.toString("base64");
-      const image = {
-        contentType: file.mimetype,
-        size: file.size,
-        img: Buffer(encodedImg, "base64"),
-      };
-      if(err){
-        return res.status(500).send("File Send Failed...!!");
-      }
-      orderCollection.insertOne({customerName, email, service, description, image})
-      .then(result =>{
-        fs.remove(filePath, error => {
-          if(error){
-            console.log(error);
-          }
-        })
-        result.insertedCount > 0 && res.send(result) && result;
-      })
-    })
+    const status = req.body.status;
+    console.log({customerName, email, service, description, status});
+    orderCollection.insertOne({customerName, email, service, description, status})
+    .then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
+    .catch(err => console.error(`Failed to insert item: ${err}`))
+    //.then(result => console.log(`Successfully inserted item with _id: ${result.insertedId}`))
+  // .catch(err => console.error(`Failed to insert item: ${err}`))
   })
 
   app.get("/userServicesList", (req, res)=>{
@@ -145,4 +129,4 @@ app.get("/", (req, res) => {
   res.send("Server is active.....!!!");
 });
 // app.listen(process.env.PORT || port);
-app.listen(process.env.PORT || port);
+app.listen(port);
