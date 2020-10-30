@@ -1,6 +1,6 @@
 # Creative Agency (Server Site)
 
-[Visit the Website](https://creative-agency-aa.netlify.app/) || [Visit Server Site Code](https://github.com/AbdulAzizMiazi/client-creative-agency)
+[Visit the Website](https://creative-agency-aa.netlify.app/) || [Visit Client Site Code](https://github.com/AbdulAzizMiazi/client-creative-agency)
 
 [Visit My Resume](https://drive.google.com/file/d/1H_IqfLPTNuFqTma2nhl8dRPuxuq6sw5b/view?usp=sharing)
 
